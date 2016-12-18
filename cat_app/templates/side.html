@@ -1,0 +1,25 @@
+	<div>
+		
+			<span class="glyphicon glyphicon-music" aria-hidden="true"></span> Recently Added Songs
+		
+	</div>
+	<div>
+	{% if items !=[] %}	
+		
+			<div class="song_list recent">
+				<h2>Songs</h2>
+					{% for i in items %}
+					<div class="song recent">
+						<h3>{{i.Song.title}}</h3>
+						<p>Performed by: {{i.Song.performed_by}}</p>
+						<p>From the album: {{i.Song.album}}</p>
+						<p>In {{i.User.name}}'s: <a href = "{{url_for('showSongs', playlist_id = i.Song.playlist_id)}}">{{i.Playlist.title}}</a> playlist</p>
+					</div>
+				{% endfor %}
+			</div>
+			
+			
+	
+	{% endif %}			
+		
+	</div>

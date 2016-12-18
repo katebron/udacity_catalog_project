@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1">
+		{% if creator.picture %}
+			<figure class="creator">
+				<img src = "{{ creator.picture }}" alt="Image of "{{ playlist.title }}" playlist's creator, {{creator.name}}"  />
+				<figcaption>{{ creator.name }}</figcaption>
+			</figure>
+			{% endif %}</div>
+		<div class="col-md-11 padding-none">
+			<h1>{{creator.name}}'s "{{ playlist.title}}" Playlist</h1>
+			
+			
+		</div>
+	</div>
+
+
+	<div class="row padding-top padding-bottom">
+		
+		<div class="col-md-7"></div>
+	</div>
+	
+	{% if items !=[] %}	
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+				<h2>Songs</h2>
+					{% for i in items %}
+					<div class="menu-item">
+						<h3>{{i.title}}</h3>
+						<p>Performed by: {{i.performed_by}}</p>
+						<p>From the album: {{i.album}}</p>
+						<p><em>{{i.notes}}</em></p>
+						
+					</div>
+				{% endfor %}
+			</div>
+			
+			<div class="col-md-1"></div>
+		</div>
+	{% endif %}
+{% endblock %}

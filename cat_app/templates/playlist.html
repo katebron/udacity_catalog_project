@@ -1,0 +1,68 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right loginlogout">
+      <a href="{{url_for('disconnect')}}">Disconnect </a>
+
+    </div>
+	</div>
+	<div class="row divider blue">
+    <div class="col-md-12"></div>
+  </div>
+
+  <div class="row banner main">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <h1>Playlists</h1>
+	<div class="row padding-top padding-bottom playlist_list">
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	
+	
+		
+			<a href="{{url_for('newPlaylist')}}">
+				<button class="btn btn-default new" id="new-playlist">
+					<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>Add Playlist
+				</button>
+			</a>
+		
+        
+		{% for p in playlists %}
+			<a href = "{{url_for('showSongs', playlist_id = p.Playlist.id)}}">
+				<div class="row">
+
+          <div class="col-md-10 playlist-entry">
+							<h3><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> {{p.Playlist.title}}</h3>
+							{% if p.Playlist.description %}
+							<p class="description">{{p.Playlist.description}}</p>
+							<p class="creator">By {{ p.User.name }}</p>
+
+							{% endif %}
+						</div>
+					</div>
+
+		</a>
+	{% endfor %}
+</div>
+  </div>
+
+  <div class="col-md-3 side">
+
+{% include "side.html" %}
+  </div>
+{% endblock %}
+ 
