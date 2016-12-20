@@ -4,7 +4,9 @@ Configuring an Ubuntu and Hosting "Custom Playlists"
 SERVER INFO
 -------------------
 Public IP address: 35.162.149.220
+
 Port: 2200
+
 URL: [http://ec2-35-162-149-220.us-west-2.compute.amazonaws.com/](http://ec2-35-162-149-220.us-west-2.compute.amazonaws.com/")
 
 INITIAL SERVER SET UP
