@@ -40,13 +40,12 @@ class Song(Base):
     title =Column(String(80), nullable = False)
     id = Column(Integer, primary_key = True)
     notes = Column(String(250))
-    performed_by = Column(String(16))
-    album = Column(String(16))
+    performed_by = Column(String(80))
+    album = Column(String(80))
     playlist_id = Column(Integer,ForeignKey('playlist.id'))
     playlist = relationship(Playlist, backref=backref("songs", cascade="all, delete-orphan"))
     user_id = Column(Integer,ForeignKey('user.id'))
     user = relationship(User)
-
 
     @property
     def serialize(self):
