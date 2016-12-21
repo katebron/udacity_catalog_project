@@ -43,6 +43,8 @@ Create a file for grader under /etc/sudoers.d, containing this:
 ```sh
 grader ALL=(ALL:ALL) ALL
 ```
+Prevent root login remotely:
+Edit /etc/ssh/sshd_config - change "Permit Root Login" to no
 
 Update existing packages:
 ```sh
@@ -81,6 +83,15 @@ sudo ufw allow ntp
 Double check, then enable firewall:
 ```sh
 sudo ufw enable
+```
+
+To see ufw rules:
+```sh
+sudo ufw status verbose
+```
+or 
+```sh
+sudo ufw status numbered
 ```
 
 CONFIGURE TIMEZONE TO UTC
